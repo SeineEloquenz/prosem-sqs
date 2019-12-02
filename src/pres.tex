@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usetheme{Darmstadt}  %TODO change
 
+\usepackage{listings}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx}
@@ -9,6 +10,9 @@
 \usepackage{amsmath,amssymb}
 \usepackage{mathtools}
 \usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
+\usepackage{csquotes}
+
+\lstset{language=C}
 
 \graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
 
@@ -32,49 +36,81 @@
 
     \section{Motivation}
     \label{sec:motivation}
-    \begin{frame}
-        
+    \begin{frame}{Motivation von Software-Qualitätsstandards}
+        Was ist unsere Motivation?\\
+        Warum wollen wir Standards?\\
+        Was sind Vorteile dieser Standards?
     \end{frame}
 
     \section{Safer Language Subsets}
     \label{sec:safer-language-subsets}
-    \begin{frame}
+    \begin{frame}{Definition}
 
     \end{frame}
 
     \section{Regelklassifizierung}
     \label{sec:regelklassifizierung}
-    \begin{frame}
-
+    \begin{frame}{Motivation}
+        \enquote{Warum} klassifizieren wir Regeln?
     \end{frame}
 
     \subsection{Typ A Regeln}
     \label{subsec:typ-a-regeln}
-    \begin{frame}
+    \begin{frame}{\enquote{Style}-Regeln}
+        \begin{block}{Definition}
 
+        \end{block}
+        \begin{exampleblock}{Beispiel}
+            \lstinputlisting{graphics/typa.c}
+        \end{exampleblock}
     \end{frame}
 
     \subsection{Typ B.1 Regeln}
     \label{subsec:typ-b-1-regeln}
-    \begin{frame}
+    \begin{frame}{Subjektive Regeln}
+        \begin{block}{Definition}
 
+        \end{block}
+        \begin{exampleblock}{Beispiel}
+            \lstinputlisting{graphics/typb1.c}
+        \end{exampleblock}
     \end{frame}
 
     \subsection{Typ B.2 Regeln}
     \label{subsec:typ-b-2-regeln}
-    \begin{frame}
+    \begin{frame}{Evidenzbasierte Regeln}
+        \begin{block}{Definition}
 
+        \end{block}
+        \begin{exampleblock}{Beispiel}
+            \lstinputlisting{graphics/typb2.c}
+        \end{exampleblock}
     \end{frame}
 
     \section{MISRA-C}
     \label{sec:misra-c}
-    \begin{frame}
+    \begin{frame}{Entwicklung}
+        %Entwicklung und Evolution des Standards
+        Entwicklung und Evolution des Standards
+    \end{frame}
 
+    \begin{frame}{Über MISRA-C}
+
+    \end{frame}
+
+    \begin{frame}{Regelsatz}
+        %Übersicht des Regelsatzes
+        Übersicht des Regelsatzes
     \end{frame}
 
     \section{Bewertung}
     \label{sec:bewertung}
-    \begin{frame}
+    \begin{frame}{Auswertung des Regelnutzen}
+        %Graphik hier
+        Graphik hier
+    \end{frame}
+
+    \begin{frame}{Fazit}
 
     \end{frame}
 
