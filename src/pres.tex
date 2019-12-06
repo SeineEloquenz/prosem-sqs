@@ -1,9 +1,7 @@
 \documentclass{beamer}
-\usetheme{Darmstadt}  %TODO change
 
 \usepackage{listings}
 \usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
@@ -11,16 +9,22 @@
 \usepackage{mathtools}
 \usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
 \usepackage{csquotes}
+\usepackage{templates/beamerthemekit}
 
 \include{commands}
 
 \lstset{language=C}
 
+\titleimage{Titelbild}
+
+\titlelogo{empty}
+
 \graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
 
 \title{M10: \sqss}
-\author{Alexander Linder}
+\author[Linder]{Alexander Linder}
 \date{} %TODO add date of presentation
+\institute{FAKULTÄT FÜR INFORMATIK}
 %\titlegraphic{\includegraphics[scale=0.1]{title.png}} % TODO add title image
 
 \begin{document}
