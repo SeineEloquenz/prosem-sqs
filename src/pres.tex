@@ -43,20 +43,23 @@
     \section{Motivation}
     \label{sec:motivation}
     \begin{frame}{Motivation von \sqss}
-        Was ist unsere Motivation?\\
-        Warum wollen wir Standards?\\
-        Was sind Vorteile dieser Standards?
+        \begin{itemize}
+            \item Beschränkung auf sichere Features von Programmiersprachen
+            \item Leichtere Wartbarkeit des Codes
+            \item Für alle Entwickler einheitliche Richtlinien
+        \end{itemize}
     \end{frame}
 
     \section{\misra}
     \label{sec:misra-c}
-    \begin{frame}{Entwicklung}
-        %Entwicklung und Evolution des Standards
-        Entwicklung und Evolution des Standards
-    \end{frame}
-
     \begin{frame}{Über \misra}
-        Inhalt, beteiligte Unternehmen/Branchen
+        \begin{itemize}
+            \item Entwickelt durch die \textbf{M}otor \textbf{I}ndustry \textbf{S}oftware \textbf{R}eliability \textbf{A}ssociation
+            \item Erste Veröffentlichung 1998
+            \item Aktuelle Version von 2012
+            \item Verwendbarkeit von C in sicherheitskritischen Anwendungen als primäres Ziel
+            \item Präzisiert Unklarheiten im C-Standard
+        \end{itemize}
     \end{frame}
 
     \begin{frame}{Regelsatz}
@@ -71,15 +74,28 @@
     \section{Regelklassifizierung}
     \label{sec:regelklassifizierung}
     \begin{frame}{Motivation}
-        \enquote{Warum} klassifizieren wir Regeln?
+        \textit{Warum} klassifizieren wir Regeln?
+        \pause
+        \begin{itemize}
+            \item Unterscheidung in \textit{stilistisch} und \textit{funktional} basierte Regeln
+            \item Feststellung ihrer \enquote{Güte}
+            \item Formale Definition eines \slss
+        \end{itemize}
+        \pause
+        \begin{block}{Güteabstufung}
+            \quad \quad Stilistische Regeln\\
+            $<$ \quad Rein subjektive, funktionale Regeln\\
+            $<$ \quad Empirisch fundierte, funktionale Regeln
+        \end{block}
     \end{frame}
 
     \subsection{Typ A Regeln}
     \label{subsec:typ-a-regeln}
     \begin{frame}{\enquote{Style}-Regeln}
         \begin{block}{Definition}
-
+            Eine Typ A Regel sei eine Regel, welche alleinig den Stil des Codes beeinflusst
         \end{block}
+        \pause
         \begin{exampleblock}{Beispiel}
             \lstinputlisting{graphics/typa.c}
         \end{exampleblock}
@@ -89,8 +105,10 @@
     \label{subsec:typ-b-1-regeln}
     \begin{frame}{Subjektive Regeln}
         \begin{block}{Definition}
-
+            Eine Typ B.1 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt,
+            jedoch keine empirischen Daten besitzt, die diesen Ausschluss begründen
         \end{block}
+        \pause
         \begin{exampleblock}{Beispiel}
             \lstinputlisting{graphics/typb1.c}
         \end{exampleblock}
@@ -100,8 +118,10 @@
     \label{subsec:typ-b-2-regeln}
     \begin{frame}{Evidenzbasierte Regeln}
         \begin{block}{Definition}
-
+            Eine Typ B.2 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt und empirische
+            Daten besitzt, die diesen Ausschluss begründen
         \end{block}
+        \pause
         \begin{exampleblock}{Beispiel}
             \lstinputlisting{graphics/typb2.c}
         \end{exampleblock}
@@ -110,9 +130,15 @@
     \section{Safer Language Subsets}
     \label{sec:safer-language-subsets}
     \begin{frame}{Definition}
-        Typ B.2 Regeln als verpflichtende Regeln\\
-        Typ B.1 Regeln als empfohlene Regeln\\
-        Keinerlei Typ A Regeln\\
+        \begin{block}{Ein Regelsatz $R$ sei ein \sls $\iff$}
+            \begin{itemize}
+                \item $R$ enthält nur Typ B.2 Regeln als verpflichtende Regeln
+                \item $R$ enthält nur Typ B.1 Regeln als empfohlene Regeln
+                \item $R$ enthält keinerlei Typ A Regeln
+            \end{itemize}
+        \end{block}
+        $\implies$ $R$ erzwingt nur Regeln für die es \textit{Evidenz} gibt\\
+        $\implies$ Regeln in $R$ können aufsteigen, sobald für sie Evidenz gefunden wird
     \end{frame}
 
     \begin{frame}{Warum genau \textit{diese} Definition?}
