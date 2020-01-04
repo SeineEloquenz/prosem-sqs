@@ -67,8 +67,19 @@
         Übersicht des Regelsatzes von \misra\
     \end{frame}
 
-    \begin{frame}{Beispielregel}
-        (möglichst kompaktes) Beispiel einer Regel aus dem \misra\ Regelsatz
+    \begin{frame}[fragile]{Beispielregel}
+        \begin{exampleblock}{Rule 2.1 (required): Assembly language shall be encapsulated and isolated}
+            Where assembly language instructions are required it is recommended that they be encapsulated
+            and isolated in either (a) assembler functions, (b) C functions or (c) macros.\\
+            For reasons of efficiency it is sometimes necessary to embed simple assembly language instructions
+            in-line, for example to enable and disable interrupts.
+            If it is necessary to do this for any reason, then it is recommended that it be achieved by using macros.\\
+            Note that the use of in-line assembly language is an extension to standard C, and therefore also
+            requires a deviation against Rule 1.1.
+            \begin{lstlisting}[language=C]
+                #define NOP asm(" NOP")
+            \end{lstlisting}
+        \end{exampleblock}
     \end{frame}
 
     \section{Regelklassifizierung}
@@ -92,39 +103,60 @@
     \subsection{Typ A Regeln}
     \label{subsec:typ-a-regeln}
     \begin{frame}{\enquote{Style}-Regeln}
-        \begin{block}{Definition}
-            Eine Typ A Regel sei eine Regel, welche alleinig den Stil des Codes beeinflusst
-        \end{block}
-        \pause
-        \begin{exampleblock}{Beispiel}
-            \lstinputlisting{graphics/typa.c}
-        \end{exampleblock}
+        \only<1-2> {
+            \begin{block}{Definition}
+                Eine Typ A Regel sei eine Regel, welche alleinig den Stil des Codes beeinflusst
+            \end{block}
+            \pause
+            \begin{exampleblock}{Rule 5.7 (advisory)}
+                No identifier name should be reused
+            \end{exampleblock}
+        }
+        \only<3> {
+            \begin{exampleblock}{Rule 5.7 (advisory)}
+                \lstinputlisting{graphics/typa.c}
+            \end{exampleblock}
+        }
     \end{frame}
 
     \subsection{Typ B.1 Regeln}
     \label{subsec:typ-b-1-regeln}
     \begin{frame}{Subjektive Regeln}
-        \begin{block}{Definition}
-            Eine Typ B.1 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt,
-            jedoch keine empirischen Daten besitzt, die diesen Ausschluss begründen
-        \end{block}
-        \pause
-        \begin{exampleblock}{Beispiel}
-            \lstinputlisting{graphics/typb1.c}
-        \end{exampleblock}
+        \only<1-2> {
+            \begin{block}{Definition}
+                Eine Typ B.1 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt,
+                jedoch keine empirischen Daten besitzt, die diesen Ausschluss begründen
+            \end{block}
+            \pause
+            \begin{exampleblock}{Rule 5.7 (advisory)} %TODO FIND RULE
+                %TODO RULE HERE
+            \end{exampleblock}
+        }
+        \only<3> {
+            \begin{exampleblock}{Rule 5.7 (advisory)}
+                \lstinputlisting{graphics/typb1.c}
+            \end{exampleblock}
+        }
     \end{frame}
 
     \subsection{Typ B.2 Regeln}
     \label{subsec:typ-b-2-regeln}
     \begin{frame}{Evidenzbasierte Regeln}
-        \begin{block}{Definition}
-            Eine Typ B.2 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt und empirische
-            Daten besitzt, die diesen Ausschluss begründen
-        \end{block}
-        \pause
-        \begin{exampleblock}{Beispiel}
-            \lstinputlisting{graphics/typb2.c}
-        \end{exampleblock}
+        \only<1-2> {
+            \begin{block}{Definition}
+                Eine Typ B.2 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt und empirische
+                Daten besitzt, die diesen Ausschluss begründen
+            \end{block}
+            \pause
+            \begin{exampleblock}{Rule X.X (required)} %TODO FIND RULE
+                %TODO RULE HERE
+            \end{exampleblock}
+        }
+        \only<3> {
+            \begin{exampleblock}{Rule Y.Y (required)}
+                \lstinputlisting{graphics/typb2.c}
+            \end{exampleblock}
+        }
     \end{frame}
 
     \section{Safer Language Subsets}
