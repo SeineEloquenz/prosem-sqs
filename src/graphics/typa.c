@@ -5,6 +5,6 @@ struct air_speed
 struct gnd_speed
 {
  uint16_t speed; /* km/h */
- /* Nicht konform - Geschwindigkeit in unterschiedlichen Einheiten */
+ /* Nicht konform */
 } * y;
 x->speed = y->speed;
