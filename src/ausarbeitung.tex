@@ -1,4 +1,6 @@
 \documentclass[a4paper,UKenglish,cleveref, autoref]{templates/lipics-v2019}
+\usepackage{csquotes}
+\usepackage{url}
 %This is a template for producing LIPIcs articles.
 %See lipics-manual.pdf for further information.
 %for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
@@ -71,6 +73,11 @@
 
 %TODO mandatory: add short abstract of the document
 \begin{abstract}
+    Diese Arbeit gibt einen Überblick über \sqss\ im Allgemeinen sowie unter besonderer Betrachtung eines weitverbreiteten Beispiels, \misra\ 2004.\\
+    Es wird die hinter \sqss\ stehende Motivation dargebracht, sowie betrachtet wie sich Regeln innerhalb eines Standards sinnvoll klassifizieren lassen.
+    Dies führt zum Begriff des \slss\ nach Hatton~\cite{hatton2004safer}, welches formale Forderungen an einen guten Regelsatz aufstellt.
+    Weiterhin wird überprüft, inwiefern \misra\ diese Definition erfüllt.\\
+    Final sollen Gütekriterien für \sqss\ aufgestellt werden und die Güte des \misra\ Standards unter eben diesen Kriterien bewertet werden.
 \end{abstract}
 
 \section{Einleitung}
@@ -78,6 +85,13 @@
 
 \section{\misra}
 \label{sec:misra-c}
+\misra\ ist ein weitverbreiteter \sqs, der von der \textbf{M}otor \textbf{I}ndustry \textbf{S}oftware \textbf{R}eliability \textbf{A}ssociation (MISRA) entwickelt wurde.
+Die erste Version von \misra\ wurde 1998 veröffentlicht, mit insgesamt zwei großen Revisionen einmal 2004 sowie 2012,
+wobei sich diese Arbeit auf die Standards von 1998 und 2004 beschränkt, da einerseits der Standard von 2004 nach wie vor
+weite Verbreitung findet und sich andererseits die Forschung auf diese beiden Versionen konzentriert.\\
+Bei \misra\ handelt es sich um den de facto Standard zur Programmierung eingebetteter Systeme in der Mehrheit der sicherheitsrelevanten Industrien in der Programmiersprache C\@.\cite{misra-website}
+Sowohl \misra\ 1998 als auch 2004 nehmen Bezug nehmen Bezug auf C89/90 und nicht auf den neueren C-Standard C99 (ISO/IEC9899:1999), was dazu führt, dass neuere Sprachkonstrukte in
+\misra-konformem Code nicht erlaubt sind, auch wenn die verwendeten Compiler sie unterstützen.
 
 \section{Regelklassifizierung}
 \label{sec:regelklassifizierung}
