@@ -1,4 +1,18 @@
 \begin{tikzpicture}[scale=0.7]
-    \pie[sum=auto]{93/ , 34/ }
-    \pie[pos={8,0},sum=auto, text=legend]{122/verpflichtend, 20/empfohlen}
+    \begin{axis}[
+    ybar,
+    enlarge x limits=0.30,
+    enlarge y limits=0.15,
+    legend style={at={(0.5,-0.15)},
+    anchor=north,legend columns=-1},
+    ybar=5pt,% configures `bar shift'
+    ylabel={\#Regeln},
+    symbolic x coords={verpflichtend,empfohlen,gesamt},
+    xtick=data,
+    nodes near coords,
+    ]
+        \addplot coordinates {(verpflichtend,93) (empfohlen,34) (gesamt,127)};
+        \addplot coordinates {(verpflichtend,122) (empfohlen,20) (gesamt,142)};
+        \legend{M1998,M2004}
+    \end{axis}
 \end{tikzpicture}

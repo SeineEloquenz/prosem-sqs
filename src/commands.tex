@@ -7,3 +7,13 @@
 \newcommand{\misra}{MISRA-C}
 
 \newcommand{\p}[1]{S. #1}
+
+
+% Command moves pie chart legends below the pies
+%\xpatchcmd{\pie}{\coordinate[xshift=0.8cm,
+%yshift=(\value{pgfpie@sliceLength}*0.5+1)*0.5cm] (legendpos) at
+%(current bounding box.east);}{%
+%\coordinate[xshift=(\value{pgfpie@sliceLength}*0.5+1)*-0.5cm, yshift=-0.5cm] (legendpos) at (current bounding box.south);}{%
+%\typeout{+++ Moved legend under pie}}{%
+%\typeout{--- Couldn't move legend under pie :(}%
+%}

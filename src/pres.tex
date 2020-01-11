@@ -10,17 +10,8 @@
 \usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
 \usepackage{csquotes}
 \usepackage{templates/beamerthemekit}
-\usepackage{pgf-pie}
+\usepackage{pgfplots}
 \usepackage{xpatch}
-
-% Command moves pie chart legends below the pies
-\xpatchcmd{\pie}{\coordinate[xshift=0.8cm,
-yshift=(\value{pgfpie@sliceLength}*0.5+1)*0.5cm] (legendpos) at
-(current bounding box.east);}{%
-\coordinate[xshift=(\value{pgfpie@sliceLength}*0.5+1)*-0.5cm, yshift=-0.5cm] (legendpos) at (current bounding box.south);}{%
-\typeout{+++ Moved legend under pie}}{%
-\typeout{--- Couldn't move legend under pie :(}%
-}
 
 \include{commands}
 
