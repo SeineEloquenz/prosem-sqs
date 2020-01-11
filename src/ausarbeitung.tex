@@ -2,6 +2,7 @@
 \usepackage{csquotes}
 \usepackage{url}
 \usepackage{pgfplots}
+\usepackage{float}
 %This is a template for producing LIPIcs articles.
 %See lipics-manual.pdf for further information.
 %for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
@@ -97,7 +98,7 @@
     \subsection{Evolution des Standards}
     \label{subsec:evolution-des-standards}
 
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \captionsetup{justification=centering,margin=2cm}
         \include{graphics/pie1998-2004}
@@ -130,6 +131,23 @@
 
     \section{Bewertung}
     \label{sec:bewertung}
+
+    \subsection{Signal-Rausch-Rate}
+    \label{subsec:signal-rausch-rate}
+
+    \begin{figure}[H]
+        \centering
+        \captionsetup{justification=centering,margin=2cm}
+        \includegraphics[width=\textwidth]{graphics/1998-transgression-rates.png}
+        \caption{Verstöße in Warnungen je 1000 Codezeilen auf 7 Pakete verteilt, M1998}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \captionsetup{justification=centering,margin=2cm}
+        \includegraphics[width=\textwidth]{graphics/2004-transgression-rates.png}
+        \caption{Verstöße in Warnungen je 1000 Codezeilen auf 7 Pakete verteilt, M2004}
+    \end{figure}
 
     \section{Konklusion}
     \label{sec:konklusion}
