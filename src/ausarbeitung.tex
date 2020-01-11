@@ -69,66 +69,66 @@
 
 \begin{document}
 
-\maketitle
+    \maketitle
 
-%TODO mandatory: add short abstract of the document
-\begin{abstract}
-    Diese Arbeit gibt einen Überblick über \sqss\ im Allgemeinen sowie unter besonderer Betrachtung eines weitverbreiteten Beispiels, \misra\ 2004.\\
-    Es wird die hinter \sqss\ stehende Motivation dargebracht, sowie betrachtet wie sich Regeln innerhalb eines Standards sinnvoll klassifizieren lassen.
-    Dies führt zum Begriff des \slss\ nach Hatton~\cite{hatton2004safer}, welches formale Forderungen an einen guten Regelsatz aufstellt.
-    Weiterhin wird überprüft, inwiefern \misra\ diese Definition erfüllt.\\
-    Final sollen Gütekriterien für \sqss\ aufgestellt werden und die Güte des \misra\ Standards unter eben diesen Kriterien bewertet werden.
-\end{abstract}
+    %TODO mandatory: add short abstract of the document
+    \begin{abstract}
+        Diese Arbeit gibt einen Überblick über \sqss\ im Allgemeinen sowie unter besonderer Betrachtung eines weitverbreiteten Beispiels, \misra\ 2004.\\
+        Es wird die hinter \sqss\ stehende Motivation dargebracht, sowie betrachtet wie sich Regeln innerhalb eines Standards sinnvoll klassifizieren lassen.
+        Dies führt zum Begriff des \slss\ nach Hatton~\cite{hatton2004safer}, welches formale Forderungen an einen guten Regelsatz aufstellt.
+        Weiterhin wird überprüft, inwiefern \misra\ diese Definition erfüllt.\\
+        Final sollen Gütekriterien für \sqss\ aufgestellt werden und die Güte des \misra\ Standards unter eben diesen Kriterien bewertet werden.
+    \end{abstract}
 
-\section{Einleitung}
-\label{sec:einleitung}
+    \section{Einleitung}
+    \label{sec:einleitung}
 
-\section{\misra}
-\label{sec:misra-c}
-\misra\ ist ein weitverbreiteter \sqs, der von der \textbf{M}otor \textbf{I}ndustry \textbf{S}oftware \textbf{R}eliability \textbf{A}ssociation (MISRA) entwickelt wurde.
-Die erste Version von \misra\ wurde 1998 veröffentlicht, mit insgesamt zwei großen Revisionen einmal 2004 sowie 2012,
-wobei sich diese Arbeit auf die Standards von 1998 und 2004 beschränkt, da einerseits der Standard von 2004 nach wie vor
-weite Verbreitung findet und sich andererseits die Forschung auf diese beiden Versionen konzentriert.\\
-Bei \misra\ handelt es sich um den de facto Standard zur Programmierung eingebetteter Systeme in der Mehrheit der sicherheitsrelevanten Industrien in der Programmiersprache C\@.\cite{misra-website}
-Sowohl \misra\ 1998 als auch 2004 nehmen Bezug nehmen Bezug auf C89/90 und nicht auf den neueren C-Standard C99 (ISO/IEC9899:1999), was dazu führt, dass neuere Sprachkonstrukte in
-\misra-konformem Code nicht erlaubt sind, auch wenn die verwendeten Compiler sie unterstützen.
+    \section{\misra}
+    \label{sec:misra-c}
+    \misra\ ist ein weitverbreiteter \sqs, der von der \textbf{M}otor \textbf{I}ndustry \textbf{S}oftware \textbf{R}eliability \textbf{A}ssociation (MISRA) entwickelt wurde.
+    Die erste Version von \misra\ wurde 1998 veröffentlicht, mit insgesamt zwei großen Revisionen einmal 2004 sowie 2012,
+    wobei sich diese Arbeit auf die Standards von 1998 und 2004 beschränkt, da einerseits der Standard von 2004 nach wie vor
+    weite Verbreitung findet und sich andererseits die Forschung auf diese beiden Versionen konzentriert.\\
+    Bei \misra\ handelt es sich um den de facto Standard zur Programmierung eingebetteter Systeme in der Mehrheit der sicherheitsrelevanten Industrien in der Programmiersprache C\@.\cite{misra-website}
+    Sowohl \misra\ 1998 als auch 2004 nehmen Bezug nehmen Bezug auf C89/90 und nicht auf den neueren C-Standard C99 (ISO/IEC9899:1999), was dazu führt, dass neuere Sprachkonstrukte in
+    \misra-konformem Code nicht erlaubt sind, auch wenn die verwendeten Compiler sie unterstützen.
 
-\section{Regelklassifizierung}
-\label{sec:regelklassifizierung}
-In diesem Abschnitt wollen wir untersuchen, wie wir Regeln eines Regelsatzes sinnvoll klassifizieren können.
-Hierfür gibt es viele verschiedene Möglichkeiten.
-Im vorigen Abschnitt haben wir bereits gesehen, wie der Regelsatz von \misra\ organisiert wird.
-Hierbei handelte es sich schlicht um eine thematische Organisation der Regeln in Gruppen.
-Wir wollen nun eine alternative Klassifikationsart betrachten, die nicht auf dem Inhalt der Regeln, sondern auf ihrer
-Art sowie dem Grad an Evidenz, der ihre Existenz begründet, basiert.
-Regeln werden in diesem System in drei Typen unterschieden,  einserseits Typ-A (\enquote{Style-basierte}) Regeln,
-sowie Typ-B (\enquote{funktionale}) Regeln, welche sich weiter in Typ-B.1 (\enquote{Subjektive}) sowie
-Typ B.2 (\enquote{Evidente}) unterscheiden lassen.\cite{hatton2004safer}
+    \section{Regelklassifizierung}
+    \label{sec:regelklassifizierung}
+    In diesem Abschnitt wollen wir untersuchen, wie wir Regeln eines Regelsatzes sinnvoll klassifizieren können.
+    Hierfür gibt es viele verschiedene Möglichkeiten.
+    Im vorigen Abschnitt haben wir bereits gesehen, wie der Regelsatz von \misra\ organisiert wird.
+    Hierbei handelte es sich schlicht um eine thematische Organisation der Regeln in Gruppen.
+    Wir wollen nun eine alternative Klassifikationsart betrachten, die nicht auf dem Inhalt der Regeln, sondern auf ihrer
+    Art sowie dem Grad an Evidenz, der ihre Existenz begründet, basiert.
+    Regeln werden in diesem System in drei Typen unterschieden, einserseits Typ-A (\enquote{Style-basierte}) Regeln,
+    sowie Typ-B (\enquote{funktionale}) Regeln, welche sich weiter in Typ-B.1 (\enquote{Subjektive}) sowie
+    Typ B.2 (\enquote{Evidente}) unterscheiden lassen.\cite{hatton2004safer}
 
-\subsection{Typ-A Regeln}
-\label{subsec:typ-a-regeln}
+    \subsection{Typ-A Regeln}
+    \label{subsec:typ-a-regeln}
 
-\subsection{Typ-B.1 Regeln}
-\label{subsec:typ-b-1-regeln}
+    \subsection{Typ-B.1 Regeln}
+    \label{subsec:typ-b-1-regeln}
 
-\subsection{Typ-B.2 Regeln}
-\label{subsec:typ-b-2-regeln}
+    \subsection{Typ-B.2 Regeln}
+    \label{subsec:typ-b-2-regeln}
 
-\section{Safer Language Subsets}
-\label{sec:safer-language-subsets}
+    \section{Safer Language Subsets}
+    \label{sec:safer-language-subsets}
 
-\section{Bewertung}
-\label{sec:bewertung}
+    \section{Bewertung}
+    \label{sec:bewertung}
 
-\section{Konklusion}
-\label{sec:konklusion}
+    \section{Konklusion}
+    \label{sec:konklusion}
 
-%%
-%% Bibliography
-%%
+    %%
+    %% Bibliography
+    %%
 
-%% Please use bibtex,
+    %% Please use bibtex,
 
-\bibliography{prosem}
+    \bibliography{prosem}
 
 \end{document}
