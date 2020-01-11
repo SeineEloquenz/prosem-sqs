@@ -1,6 +1,7 @@
 \documentclass[a4paper,UKenglish,cleveref, autoref]{templates/lipics-v2019}
 \usepackage{csquotes}
 \usepackage{url}
+\usepackage{pgfplots}
 %This is a template for producing LIPIcs articles.
 %See lipics-manual.pdf for further information.
 %for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
@@ -87,11 +88,21 @@
     \label{sec:misra-c}
     \misra\ ist ein weitverbreiteter \sqs, der von der \textbf{M}otor \textbf{I}ndustry \textbf{S}oftware \textbf{R}eliability \textbf{A}ssociation (MISRA) entwickelt wurde.
     Die erste Version von \misra\ wurde 1998 veröffentlicht, mit insgesamt zwei großen Revisionen einmal 2004 sowie 2012,
-    wobei sich diese Arbeit auf die Standards von 1998 und 2004 beschränkt, da einerseits der Standard von 2004 nach wie vor
+    wobei sich diese Arbeit auf die Standards von 1998 (künftig M1998) und 2004 (künftig M2004) beschränkt, da einerseits der Standard von 2004 nach wie vor
     weite Verbreitung findet und sich andererseits die Forschung auf diese beiden Versionen konzentriert.\\
     Bei \misra\ handelt es sich um den de facto Standard zur Programmierung eingebetteter Systeme in der Mehrheit der sicherheitsrelevanten Industrien in der Programmiersprache C\@.\cite{misra-website}
-    Sowohl \misra\ 1998 als auch 2004 nehmen Bezug nehmen Bezug auf C89/90 und nicht auf den neueren C-Standard C99 (ISO/IEC9899:1999), was dazu führt, dass neuere Sprachkonstrukte in
+    Sowohl M1998 als auch M2004 nehmen Bezug nehmen Bezug auf C89/90 und nicht auf den neueren C-Standard C99 (ISO/IEC9899:1999), was dazu führt, dass neuere Sprachkonstrukte in
     \misra-konformem Code nicht erlaubt sind, auch wenn die verwendeten Compiler sie unterstützen.
+
+    \subsection{Evolution des Standards}
+    \label{subsec:evolution-des-standards}
+
+    \begin{figure}
+        \centering
+        \captionsetup{justification=centering,margin=2cm}
+        \include{graphics/pie1998-2004}
+        \caption{Regelanzahl 1998 vs 2004}
+    \end{figure}
 
     \section{Regelklassifizierung}
     \label{sec:regelklassifizierung}
