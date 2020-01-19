@@ -109,9 +109,9 @@
     \subsection{Beispielregel}
     \label{subsec:beispielregel}
 
-    \begin{figure}{H}
-        \captionsetup{justification=centering,margin=2cm}
-        \textbf{Rule 2.1 (required): Assembly language shall be encapsulated and isolated}
+    \begin{minipage}{\linewidth}
+        \begin{example}
+        \textbf{Rule 2.1 (required): Assembly language shall be encapsulated and isolated\cite{MISRA2004}}\\
         Where assembly language instructions are required it is recommended that they be encapsulated
         and isolated in either (a) assembler functions, (b) C functions or (c) macros.\\
         For reasons of efficiency it is sometimes necessary to embed simple assembly language instructions
@@ -122,7 +122,12 @@
         \begin{lstlisting}[language=C]
             #define NOP asm(" NOP")
         \end{lstlisting}
-        \caption{Regel 2.1 von M2004\cite{MISRA2004}}
+        \end{example}
+    \end{minipage}
+
+    \begin{figure}{H}
+        \captionsetup{justification=centering,margin=2cm}
+
     \end{figure}
 
     \section{Regelklassifizierung}
