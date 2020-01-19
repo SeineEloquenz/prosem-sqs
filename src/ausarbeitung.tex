@@ -139,16 +139,36 @@
 
     \subsection{Typ-A Regeln}
     \label{subsec:typ-a-regeln}
+    \begin{definition}
+        Eine Typ A Regel sei eine Regel, welche alleinig den Stil des Codes beeinflusst.
+    \end{definition}
 
     \subsection{Typ-B.1 Regeln}
     \label{subsec:typ-b-1-regeln}
-
+    \begin{definition}
+        Eine Typ B.1 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt,
+        jedoch keine empirischen Daten besitzt, die diesen Ausschluss begründen.
+    \end{definition}
+    
     \subsection{Typ-B.2 Regeln}
     \label{subsec:typ-b-2-regeln}
-
+    \begin{definition}
+        Eine Typ B.2 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt und empirische
+        Daten besitzt, die diesen Ausschluss begründen.
+    \end{definition}
+    
     \section{Safer Language Subsets}
     \label{sec:safer-language-subsets}
-
+    \begin{definition}
+        Ein Regelsatz $R$ sei ein \sls $\iff$
+        \begin{itemize}
+            \item $R$ enthält nur Typ B.2 Regeln als verpflichtende Regeln
+            \item $R$ enthält nur Typ B.1 Regeln als empfohlene Regeln
+            \item $R$ enthält keinerlei Typ A Regeln
+        \end{itemize}
+        
+    \end{definition}
+    
     \section{Bewertung}
     \label{sec:bewertung}
 
