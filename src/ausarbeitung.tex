@@ -137,12 +137,19 @@
     Regeln werden in diesem System in drei Typen unterschieden, einserseits Typ-A (\enquote{Style-basierte}) Regeln,
     sowie Typ-B (\enquote{funktionale}) Regeln, welche sich weiter in Typ-B.1 (\enquote{Subjektive}) sowie
     Typ B.2 (\enquote{Evidente}) unterscheiden lassen.\cite{hatton2004safer}
+    Im Folgenden wollen wir uns die verschiedenen Regelklassen je an einem Beispiel für eine Regel sowie ihre Verletzung
+    genauer ansehen.
+    Alle verwendeten Beispielregeln stammen hierbei aus \misra.
 
     \subsection{Typ-A Regeln}
     \label{subsec:typ-a-regeln}
     \begin{definition}
-        Eine Typ A Regel sei eine Regel, welche alleinig den Stil des Codes beeinflusst.
+        Eine Typ-A Regel sei eine Regel, welche alleinig den Stil des Codes beeinflusst.
     \end{definition}
+
+    Ein Beispiel für eine Typ-A Regel stellt Regel 5.7 \textit{No identifier name should be reused}\cite{MISRA2004}
+    (Kein Variablenname soll wiederverwendet werden.) dar.
+    Betrachten wir folgendes Code-Beispiel:
 
     \noindent
     \begin{minipage}{\linewidth}
@@ -151,12 +158,26 @@
         \end{example}
     \end{minipage}
 
+    Im Beispiel besitzen die Structs \textit{air\_speed} und \textit{gnd\_speed} je eine Membervariable \textit{speed}.
+    Durch die unterschiedlichen Einheiten für Geschwindigkeit in der Luft bzw.\ am Boden besteht hier eine potentielle
+    Fehlerquelle.
+    Durch Umbenennung der Variablen in bspw.\ \textit{speed\_knots} und \textit{speed\_kmh} kann diese ausgeräumt werden,
+    da klar wird, dass eine Konversion der Geschwindigkeiten stattfinden muss, bevor diese gemeinsam verwendet, bspw.\ verglichen,
+    werden können.
+    Ungeachtet dieser Fehlerquelle handelt es sich jedoch um ein rein stilistisches Problem, weshalb diese Regel in
+    Kategorie A fällt.
+
     \subsection{Typ-B.1 Regeln}
     \label{subsec:typ-b-1-regeln}
     \begin{definition}
-        Eine Typ B.1 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt,
+        Eine Typ-B.1 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt,
         jedoch keine empirischen Daten besitzt, die diesen Ausschluss begründen.
     \end{definition}
+
+    Das klassische Beispiel schlechthin für eine Typ-B.1 Regel stellt Regel 14.4 \textit{The goto statement shall not be used}\cite{MISRA2004}
+    (Die goto Anweisung soll nicht verwendet werden) dar.
+    Betrachten wir einmal folgendes Beispiel einer noch recht konservativen Verwendung des \textit{goto} rein zur
+    Fehlerbehandlung:
 
     \noindent
     \begin{minipage}{\linewidth}
@@ -164,13 +185,34 @@
             \lstinputlisting[title=\ ]{graphics/typb1.c}
         \end{example}
     \end{minipage}
+
+    Im Falle dass \textit{some Condition} eintritt, springt die Programmausführung zur Sprungmarke \textit{error}.
+    Diese ist in einer \enquote{\textit{goto}-freien} Ausführung nicht erreichbar, da sie nach der ersten \textit{return}
+    Anweisung steht.
+    Wollen wir die Programmausführung analysieren müssen wir somit alle Verwendungen von \textit{goto} finden,
+    um zu verstehen wann die \textit{error} Marke erreicht wird.
+    \textit{Goto} erhöht damit die Komplexität von Programmen enorm, indem es die Lücke zwischen statischem
+    Quelltext und darauf basierender Programmausführung vergrößert.\cite{goto-harmful}
+    Eine empirische Datenbasis liefert uns diese Intuition nicht, dennoch enthält nahezu jeder \sqs eine Regel dieser
+    Form.\cite{hatton2004safer}\\
+    Es handelte sich damit lange um \textit{das} Beispiel schlechthin für Typ-B.1 Regeln.
+    Die von Hatton beschriebene klare Absenz von faktischer Untermauerung muss jedoch insofern in Frage gestellt werden,
+    dass der Autor eine Analyse der Auswirkung von \textit{goto} in Cobol-Programmen fand, die eine Korrelation der
+    Nutzung von \textit{goto} mit geringerer Programmqualität nahelegt.\cite{goto-study}
+    Mit weiterer Faktenuntermauerung könnte unser Beispiel damit auch in die Kategorie B.2 wandern, die im Folgenden
+    betrachtet wird.
     
     \subsection{Typ-B.2 Regeln}
     \label{subsec:typ-b-2-regeln}
     \begin{definition}
-        Eine Typ B.2 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt und empirische
+        Eine Typ-B.2 Regel sei eine Regel, welche potentiell unsichere Sprachfeatures ausschließt und empirische
         Daten besitzt, die diesen Ausschluss begründen.
     \end{definition}
+
+    Typ-B.2 Regeln stellen damit sozusagen den \enquote{Goldstandard} für Regeln in einem \sqs\ dar.
+    Sie sind weder stilistisch wie Typ-A Regeln, noch begründen sie sich auf Intuition wie Typ-B.1 Regeln.
+    Betrachten wir im Folgenden die Regel 9.1 \textit{All automatic variables shall have been asigned a value before being used}\cite{MISRA2004}
+    (Alle lokalen Variablen müssen vor Benutzung initialisiert werden).
 
     \noindent
     \begin{minipage}{\linewidth}
@@ -178,6 +220,15 @@
             \lstinputlisting[title=\ ]{graphics/typb2.c}
         \end{example}
     \end{minipage}
+
+    Im dargestellten Listing wird eine Variable \textit{speed} deklariert aber nicht initialisiert.
+    Der erweiternde Erklärungstext zu Regel 9.1 erlaubt eine spätere Initialisierung ausdrücklich, verlangt jedoch, dass
+    in jedem Fall die Variable vor einem lesenden Zugriff beschrieben werden muss.\cite{MISRA2004}
+    Dies ist hier offensichtlich nicht der Fall, da \textit{speed} nur im Falle dass \textit{some Condition} eintritt auf
+    \textit{101} gesetzt wird, andernfalls bleibt ihr Wert undefiniert.
+    Damit ist ab dem lesenden Zugriff in der darauffolgenden If-Abfrage das Verhalten des Programms potentiell undefiniert.
+    Es ist bereits intuitiv klar, warum es sich hierbei um eine Fehlerquelle handelt, jedoch gibt es hierzu auch explizit
+    empirische Fehlerdaten, wie von Hatton dargelegt.\cite{hatton2004safer}
     
     \section{Safer Language Subsets}
     \label{sec:safer-language-subsets}
