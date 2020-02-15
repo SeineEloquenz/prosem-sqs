@@ -278,12 +278,22 @@
     \end{definition}
 
     %TODO Explain graphics below
+    In Figure~\ref{fig:1998-transgression-rates} und Figure~\ref{fig:2004-transgression-rates} werden anhand von sieben
+    Softwarepaketen die kumulierten Verstöße je 1000 Codezeilen für M1998 bzw.\ M2004 je Regel dargestellt.
+    Diese Untersuchung aus~\cite{hatton2007language} zeigt, dass mit der Einführung von M2004 die Rate der False Positives
+    um lediglich $29\%$ gesunken ist.
+    Damit folgt gemäß der Betrachtungen aus~\cite{hatton2007language} gemeinsam mit den Daten aus~\cite{transgression-data}
+    dass M2004 noch immer in jenem Bereich liegt, in dem eine Korrektur aller Verstöße die Anzahl an Faults
+    eher erhöht als verringert.\\
+    Daraus muss geschlossen werden, dass Misra in seiner Reinform ungeeignet ist und eine sorgfältige Regelauswahl erfolgen
+    muss um aus dem Standard einen Nutzen zu ziehen.
 
     \begin{figure}[H]
         \centering
         \captionsetup{justification=centering,margin=2cm}
         \includegraphics[width=\textwidth]{graphics/1998-transgression-rates.png}
         \caption{Verstöße in Warnungen je 1000 Codezeilen auf 7 Pakete verteilt, M1998\cite{hatton2007language}}
+        \label{fig:1998-transgression-rates}
     \end{figure}
 
     \begin{figure}[H]
@@ -291,6 +301,7 @@
         \captionsetup{justification=centering,margin=2cm}
         \includegraphics[width=\textwidth]{graphics/2004-transgression-rates.png}
         \caption{Verstöße in Warnungen je 1000 Codezeilen auf 7 Pakete verteilt, M2004\cite{hatton2007language}}
+        \label{fig:2004-transgression-rates}
     \end{figure}
 
     \section{Konklusion}
