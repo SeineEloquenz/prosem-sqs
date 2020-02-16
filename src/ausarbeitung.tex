@@ -255,27 +255,38 @@
 
     %TODO Add introductory paragraph
 
-    \subsection{Signal-Rausch-Rate}
-    \label{subsec:signal-rausch-rate}
+    \subsection{Signal-Rausch-Rate und False Positives}
+    \label{subsec:signal-rausch-rate-und-false-positives}
 
     %TODO Explain what signal-noise-ratio means in context
+    Unter der Signal-Rausch-Rate eines Standards verstehen wir die Rate mit der das Auftreten eines Verstoßes gegen den Regelsatz mit einem
+    tatsächlichen Defekt korreliert.
+    Großes Rauschen führt dazu, dass die Wahrscheinlichkeit dass ein Verstoß mit einem Defekt einhergeht, abnimmt.
+    Ein Standard ist demnach \enquote{gut}, wenn die Signal-Rausch-Rate möglichst gering ist.\\
+    Sei $p > 0$ sei die Wahrscheinlichkeit, mit der eine Korrektur einer Regelübertretung zur Einführung eines neuen Defekts
+    etwa desselben Schweregrads führt.
+    Diese Wahrscheinlichkeit existiert gemäß~\cite{transgression-data} und~\cite{hatton2007language} und beträgt in
+    Adams Arbeit etwa den Wert $0,15$.\\
+    Um nun die Relevanz von False Positives analysieren zu können betrachten wir die Rate $f$ mit der der Standard
+    bei einer Regelübertretung auch einen Fault findet sowie die Rate $g$ mit der ein Verstoß einen False Positive, also
+    einen Regelverstoß ohne assoziierten Fault, darstellt.
+    Damit kann nun die gesamte Anzahl an Faults nach Korrektur aller Verstöße berechnet werden:
+    \begin{lemma}
+        Die gesamte Anzahl Faults nach Korrektur aller Regelverstöße gegen einen Standard berechnet sich als $fp + gp$
+    \end{lemma}
 
-    \begin{definition}
-        Die Prävalenz (\enquote{base rate}) mit der bekannte Fehlerquellen von Programmiersprachen auftreten bezeichnen wir mit $B$.
-    \end{definition}
+    Da es zu Beginn jedoch bereits $f$ Faults gab, besteht die Möglichkeit dass ein stark rauschender Standard die Anzahl
+    an Faults erhöht.
+    Dies ist dann der Fall, wenn $fp + gp > f$ gilt.
+    Dies lässt sich mittels Äquivalenzumformungen vereinfachen und führt damit zu:
 
-    \begin{definition}
-        Die Erkennungsrate (\enquote{detection rate}) eines Standards ist die gesamte Anzahl an Abweichungen pro 1000 Zeilen
-        ausführbaren Codes gemeint ist.
-        Wir bezeichnen sie mit $D$.
-    \end{definition}
-    
-    \begin{definition}
-        Wir definieren die Signal-Rausch-Rate $S$, also die Rate in der bekannte Defekte gefunden werden, als:
-        \begin{equation*}
-            S=B/D
-        \end{equation*}
-    \end{definition}
+    \begin{theorem}
+        Die gesamte Anzahl Faults erhöht sich nach Korrektur aller Verstöße gegen einen Standard $\iff$
+        \begin{gather*}
+            \frac{f}{g} < \frac{p}{1-p}
+        \end{gather*}
+    \end{theorem}
+
 
     %TODO Explain graphics below
     In Figure~\ref{fig:1998-transgression-rates} und Figure~\ref{fig:2004-transgression-rates} werden anhand von sieben
