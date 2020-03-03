@@ -172,7 +172,7 @@
     \end{definition}
 
     Ein Beispiel für eine Typ-A Regel stellt Regel 5.7 \textit{No identifier name should be reused}
-    (Kein Variablenname soll wiederverwendet werden) dar.\cite{MISRA2004}\\
+    (Kein Variablenname soll wiederverwendet werden) dar.\\
     Betrachten wir folgendes Code-Beispiel:
 
     \noindent
@@ -199,7 +199,7 @@
     \end{definition}
 
     Das klassische Beispiel schlechthin für eine Typ-B.1 Regel stellt Regel 14.4 \textit{The goto statement shall not be used}
-    (Die goto Anweisung soll nicht verwendet werden) dar.\cite{MISRA2004}
+    (Die goto Anweisung soll nicht verwendet werden) dar.
     Betrachten wir einmal folgendes Beispiel einer noch recht konservativen Verwendung des \textit{goto} rein zur
     Fehlerbehandlung:
 
@@ -217,7 +217,7 @@
     um zu verstehen wann die \textit{error} Marke erreicht wird.
     \textit{Goto} erhöht damit die Komplexität von Programmen enorm, indem es die Lücke zwischen statischem
     Quelltext und darauf basierender Programmausführung vergrößert.\cite{goto-harmful}
-    Eine empirische Datenbasis liefert uns diese Intuition nicht, dennoch enthält gemäß \cite{hatton2004safer}
+    Eine empirische Datenbasis liefert uns diese Intuition nicht, dennoch enthält gemäß~\cite{hatton2004safer}
     nahezu jeder \sqs\ eine Regel dieser Form.\\
     Es handelte sich damit lange um \textit{das} Beispiel schlechthin für Typ-B.1 Regeln.
     Die von Hatton beschriebene klare Absenz von faktischer Untermauerung muss jedoch insofern in Frage gestellt werden,
@@ -236,7 +236,7 @@
     Typ-B.2 Regeln stellen damit sozusagen den \enquote{Goldstandard} für Regeln in einem \sqs\ dar.
     Sie sind weder rein stilistisch wie Typ-A Regeln, noch begründen sie sich auf Intuition wie Typ-B.1 Regeln.
     Betrachten wir im Folgenden die Regel 9.1 \textit{All automatic variables shall have been asigned a value before being used}
-    (Alle lokalen Variablen müssen vor Benutzung initialisiert werden).\cite{MISRA2004}\\
+    (Alle lokalen Variablen müssen vor Benutzung initialisiert werden).\\
     Ein Beispiel:
 
     \noindent
