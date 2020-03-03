@@ -3,6 +3,7 @@
 \usepackage{csquotes}
 \usepackage{url}
 \usepackage{pgfplots}
+\usepackage{pgf-pie}
 \usepackage{float}
 %This is a template for producing LIPIcs articles.
 %See lipics-manual.pdf for further information.
@@ -118,18 +119,34 @@
 
     \subsection{Evolution des Standards}
     \label{subsec:evolution-des-standards}
-    In der nachfolgenden Grafik ist die Verteilung von Regeln in die beiden Kategorien \enquote{Empfohlene} sowie
-    \enquote{Verpflichtende} aufgetragen.
+    In Figure~\ref{fig:bar-1998-2004} ist die absolute Verteilung von Regeln in die beiden Kategorien \enquote{Empfohlene}
+    sowie \enquote{Verpflichtende} aufgetragen.
     Im dritten Balkenpaar sind die Gesamtanzahlen der Regeln aufgetragen.
+    In Figure~\ref{fig:pie-1998-2004} sind die prozentualen Anteile der beiden Regelkategorien aufgetragen.
 
     \begin{figure}[H]
         \centering
         \captionsetup{justification=centering,margin=2cm}
         \include{graphics/bar1998-2004}
         \caption{Regelanzahl 1998 vs 2004}
+        \label{fig:bar-1998-2004}
     \end{figure}
 
-    Wie man anhand der Grafik erkennen kann,
+
+    \begin{figure}[H]
+        \centering
+        \captionsetup{justification=centering,margin=2cm}
+        \include{graphics/pie1998-2004}
+        \caption{Regelanteile 1998 vs 2004}
+        \label{fig:pie-1998-2004}
+    \end{figure}
+
+    Wie man anhand der Grafiken erkennen kann, hat sich die Anzahl der Regeln in M2004 insgesamt erhöht und der Anteil
+    der verpflichtenden Regeln ist gestiegen.
+    Dies geht einher mit den Zielen von M2004, große Regeln in mehrere kleinere aufzuteilen um diese leichter zu entscheiden
+    und verstehen zu machen, sowie den Fokus auf die verpflichtenden, also die \enquote{essentielleren} Regeln zu verschieben.
+    Teilweise ist den Machern des Standards dies gelungen, jedoch gibt es nach wie vor viele lange und komplexe Regeln.
+    Wir wollen ein repräsentatives Beispiel auszugsweise näher betrachten:
 
     \subsection{Beispielregel}
     \label{subsec:beispielregel}
