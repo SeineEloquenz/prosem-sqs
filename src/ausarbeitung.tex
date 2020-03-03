@@ -168,10 +168,12 @@
     \end{itemize}
 
     Diese Fragen zeigen bereits auf, dass es alles andere als trivial ist, diese Regel automatisiert zu überprüfen.
-    Angenommen, der Compiler überprüft sie für uns
-    Wann setzt er die Grenze ab wann inline Assemblerinstruktionen nicht mehr \enquote{einfach} sind?
+    Angenommen, der Compiler überprüft sie für uns, wann setzt er die Grenze ab wann inline Assemblerinstruktionen
+    nicht mehr \enquote{einfach} sind?
     Wird die Schwelle zu gering gesetzt, werden potentiell zu viele false positives erzeugt.
     Wird sie zu hoch gesetzt wird die Regel wertlos, da sie keine Ergebnisse mehr produziert.
+    Beide Extreme sorgen dafür dass die Akzeptanz bei den Entwicklern sinkt, da sie im einen Fall störende false positives
+    und im anderen Fall gar nie Fehler findet.
     Weiterhin erfordert inline Assembler eine Abweichung von Regel 1.1, was bedeutet dass für jede Inline-Instruktion,
     auch die, die durch diese Regel erlaubt werden, eine formale Abweichung von dieser Regel angegeben werden muss.\\
     Was folgt daraus?
