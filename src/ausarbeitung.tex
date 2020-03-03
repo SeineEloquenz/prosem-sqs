@@ -131,7 +131,9 @@
     \subsection{Beispielregel}
     \label{subsec:beispielregel}
 
-    %TODO Add text for example rule explaining why its printed here and why this style is problematic
+    Die folgende Beispielregel ist aus \misra\ unverändert (ausgenommen des Stylings) übernommen.
+    Wir wollen an dieser möglichst möglichst kurzen, aber dennoch repräsentativen Regel die Formulierung des Regelsatzes
+    analysieren und bewerten, inwiefern diese dem Ziel eines möglichst einfachen, leicht umsetzbaren Standards zuträglich ist.\\
 
     \noindent
     \begin{minipage}{\linewidth}
@@ -149,6 +151,34 @@
             \end{lstlisting}
         \end{example}
     \end{minipage}
+
+    Die Regel beschreibt wie Assemblerinstruktionen in den C-Code eingebettet werden sollen.
+    Hierfür bestehen grundsätzlich drei Möglichkeiten, als Assemblerfunktionen, C Funktionen oder Makros.
+    Soweit ist die Regel klar und sinnvoll aufgebaut.
+    Im Nachfolgenden werden mögliche Abweichungen von der Regel erläutert.
+    Unter anderem wann und wie die Verwendung von inline Assembler erlaubt ist und wie dies von statten gehen soll.
+    Hier stellen sich gleich mehrere Fragen:
+
+    \begin{itemize}
+        \item Was genau ist eine \enquote{einfache} Assemblerinstruktion?
+            Als Beispiel wird die (De-)Aktivierung von Interrupts genannt, doch wo soll allgemein die Grenze gesetzt werden?
+        \item Es wird empfohlen inline Einbettungen mit Makros durchzuführen.
+            Was ist zu tun wenn dies nicht über Makros geschieht.
+            Verletzt das bereits die Regel oder ist es nur \enquote{unschön}?
+    \end{itemize}
+
+    Diese Fragen zeigen bereits auf, dass es alles andere als trivial ist, diese Regel automatisiert zu überprüfen.
+    Angenommen, der Compiler überprüft sie für uns
+    Wann setzt er die Grenze ab wann inline Assemblerinstruktionen nicht mehr \enquote{einfach} sind?
+    Wird die Schwelle zu gering gesetzt, werden potentiell zu viele false positives erzeugt.
+    Wird sie zu hoch gesetzt wird die Regel wertlos, da sie keine Ergebnisse mehr produziert.
+    Weiterhin erfordert inline Assembler eine Abweichung von Regel 1.1, was bedeutet dass für jede Inline-Instruktion,
+    auch die, die durch diese Regel erlaubt werden, eine formale Abweichung von dieser Regel angegeben werden muss.\\
+    Was folgt daraus?
+    Die Regel lässt sich nur schwer sinnvoll automatisiert entscheiden und ist durch die vielen Ausnahmen und Überlappungen
+    mit anderen Regeln komplex.
+    Dies trifft auch auf viele andere Regeln in \misra\ zu, und ist eines der ersten Probleme des Standards, die auffallen
+    und die sinnvolle Verwendung erschweren.
 
     \section{Regelklassifizierung}
     \label{sec:regelklassifizierung}
