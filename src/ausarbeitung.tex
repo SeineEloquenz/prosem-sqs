@@ -326,6 +326,35 @@
     \label{sec:bewertung}
 
     %TODO Add introductory paragraph
+    Nun wollen wir uns mit der Bewertung von \sqss\ und ihren Regeln beschäftigen.
+    Hierbei gibt es nach~\cite{hatton2004safer} mehrere Kriterien, wovon wir einige nachfolgend näher beleuchten wollen:
+
+    \subsection{Orthogonalität}
+    \label{subsec:orthogonalität}
+    Die Orthogonalität einer Regel $r$ bezeichnet den Grad der Unabhängigkeit von $r$ bezüglich der restlichen Regeln
+    des Standards $S$.\\
+    Weitergehende Analysen zur Orthogonalität würden den Rahmen dieser Arbeit sprengen, eine Analyse von M1998 findet sich
+    jedoch in~\cite{hatton2004safer}.
+
+    \subsection{Entscheidbarkeit}
+    \label{subsec:entscheidbarkeit}
+    Unter der Entscheidbarkeit einer Regel $r$ verstehen wir den Grad mit dem eine Überprüfung einer Regel auch wirklich das
+    erreicht was sie soll.
+    Damit eine Regel gut entscheidbar ist, muss diese alle möglichen zutreffenden Fälle vollständig spezifizieren und
+    sollte möglichst keine Ausnahmen enthalten, welche false positives generieren könnten.\\
+    Ein Beispiel für eine schlecht entscheidbare Regel stellt Regel 37 von M1998 dar, welche bitweise Operationen auf
+    signed Integern verbietet.
+    Die Regel lässt jedoch unspezifiziert, ob sie auf Fälle von Integer Promotion anzuwenden ist oder nicht.
+    \footnote{Integer Promotion bezeichnet die implizite Konversion von Typen wie \textit{char} zu \textit{int} oder \textit{unsigned int}, sobald eine Operation auf ihnen ausgeführt wird.
+    Ob \textit{int} oder \textit{unsigned int} verwendet wird hängt davon ab, ob ein \textit{int} alle Werte darstellen
+    kann oder nicht.}
+
+    \subsection{Atomizität}
+    \label{subsec:atomizität}
+    Manche Standards nutzen kurze, konzise Regeln, andere lange Prosaregeln.
+    Eine Regel ist atomar, wenn sie nicht mit anderen Regeln überlappt und befolgt werden kann, ohne dass einzelne Teile der Regel gebrochen werden müssen.
+    Weiterhin sollte eine Regel keine Ausnahmen besitzen, um als atomar bezeichnet werden zu können.\\
+    Das Paradebeispiel einer nicht-atomaren Regel stellt Regel 1 dar, welche die Achtung des ISO C90 Standards fordert.
 
     \subsection{Signal-Rausch-Rate und False Positives}
     \label{subsec:signal-rausch-rate-und-false-positives}
