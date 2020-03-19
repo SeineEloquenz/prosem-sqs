@@ -102,6 +102,17 @@
     Projektteams.
     Damit soll die Programmiersprache, in den meisten Fällen C oder C++, auf sichere Features beschränkt werden, was den
     Code leichter wartbar machen und final für mehr Codequalität und weniger Fehler sorgen soll.\\
+    Ein gutes Beispiel für solch ein unsicheres Sprachfeature ist die Operatorpräzedenz in C, sowie den von ihr beeinflussten
+    Sprachen.
+    C besitzt wie auch die Mathematik eine recht große Menge an Operatoren.
+    Diese beiden Mengen unterscheiden sich jedoch in einem kleinen, aber feinen Punkt.
+    In der Mathematik wird bis auf die grundlegendsten Präzedenzen wie Punkt vor Strich nur sehr wenig mit Präzedenzregeln
+    gearbeitet.
+    Im Allgemeinen müssen Klammern gesetzt werden.
+    Dies ist in C-artigen Sprachen nicht so.
+    C bspw.\ besitzt eine Operatorpräzedenztabelle mit insgesamt 15 Prioritätsstufen, um lästiges Klammerschreiben vermeidbar
+    zu machen.
+    Bei diesen Prioritäten handelt es sich jedoch um eine bekannte und nicht zu unterschätzende Fehlerquelle.\\
     Beispiele für \sqss\ sind der JSF AV (Joint Strike Fighter Air Vehicle) Standard für C++, der von Lockheed Martin
     für den namensgebenden Joint Strike Fighter verwendet wurde und frei im Netz verfügbar ist, der CERT C Coding
     Standard des CERT Coordination Centers oder \misra, einer der weitverbreitetsten Standards, vorallem in der
@@ -111,13 +122,19 @@
 
     \section{\misra}
     \label{sec:misra-c}
-    \misra\ ist ein weitverbreiteter \sqs, der von der \textbf{M}otor \textbf{I}ndustry \textbf{S}oftware \textbf{R}eliability \textbf{A}ssociation (MISRA) entwickelt wurde.
+    \misra\ ist ein weitverbreiteter \sqs,
+    der von der \textbf{M}otor \textbf{I}ndustry \textbf{S}oftware \textbf{R}eliability \textbf{A}ssociation (MISRA) entwickelt wurde.
     Die erste Version von \misra\ wurde 1998 veröffentlicht, mit insgesamt zwei großen Revisionen einmal 2004 sowie 2012,
-    wobei sich diese Arbeit auf die Standards von 1998 (künftig M1998) und 2004 (künftig M2004) beschränkt, da einerseits der Standard von 2004 nach wie vor
-    weite Verbreitung findet und sich andererseits die Forschung auf diese beiden Versionen konzentriert.\\
-    Bei \misra\ handelt es sich um den de facto Standard zur Programmierung eingebetteter Systeme in der Mehrheit der sicherheitsrelevanten Industrien in der Programmiersprache C\@.\cite{misra-website}
-    Sowohl M1998 als auch M2004 nehmen Bezug auf C89/90 und nicht auf den neueren C-Standard C99 (ISO/IEC9899:1999), was dazu führt, dass neuere Sprachkonstrukte in
-    \misra-konformem Code nicht erlaubt sind, auch wenn die verwendeten Compiler sie unterstützen.
+    wobei sich diese Arbeit auf die Standards von 1998 (künftig M1998) und 2004 (künftig M2004) beschränkt,
+    da einerseits der Standard von 2004 nach wie vor weite Verbreitung findet und sich andererseits die Forschung
+    auf diese beiden Versionen konzentriert.\\
+    Bei \misra\ handelt es sich nach~\cite{misra-website} um den de facto Standard zur Programmierung eingebetteter Systeme
+    in der Mehrheit der sicherheitsrelevanten Industrien in der Programmiersprache C\@.
+    Verbreitung findet \misra\ dabei überwiegend in der Automobilindustrie, wird jedoch auch von Bahn, Luftfahrt, Militär
+    sowie dem medizinischen Sektor genutzt.\\
+    Sowohl M1998 als auch M2004 nehmen Bezug auf C89/90 und nicht auf den neueren C-Standard C99 (ISO/IEC9899:1999),
+    was dazu führt, dass neuere Sprachkonstrukte in \misra-konformem Code nicht erlaubt sind,
+    auch wenn die verwendeten Compiler sie unterstützen.
 
     \subsection{Evolution des Standards}
     \label{subsec:evolution-des-standards}
