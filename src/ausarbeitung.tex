@@ -312,7 +312,10 @@
     \section{Safer Language Subsets}
     \label{sec:safer-language-subsets}
 
-    %TODO Add introduction to sls
+    Viele \sqss\ sind eine Ansammlung von Regeln der obigen Kategorien.
+    Die meisten Standards versuchen diese Regeln weiter zu untergliedern, wie bspw.\ \misra\ in \textit{verpflichtende}
+    und \textit{empfohlene} Regeln.
+    Wir wollen im Folgenden ein \sls\ nach Hatton analog definieren.
 
     \begin{definition}
         Ein Regelsatz $R$ sei ein \sls $\iff$
@@ -321,8 +324,17 @@
             \item $R$ enthält nur Typ B.1 Regeln als empfohlene Regeln
             \item $R$ enthält keinerlei Typ A Regeln
         \end{itemize}
-        
     \end{definition}
+
+    Diese Konstruktion eines \slss\ ermöglicht dem Standard auf \enquote{natürliche} Weise zu wachsen.
+    Werden für eine Regel aus der Kategorie B.1 Fehlerdaten gefunden, so kann diese automatisch in die bessere Kategorie
+    B.2 wandern, wie in Abschnitt~\ref{subsec:typ-b-1-regeln} mit der \textit{goto}-Regel angedeutet.\\
+    In~\cite{hatton2004safer} begründet Hatton diese Definition damit, dass Mangel an begründenden Fehlerdaten eine der
+    größten Barrieren ist, welche die Akzeptanz von Language Subsetting beeinträchtigt.
+    Kennt ein Entwickler das mess- und quantifizierbare Risiko eines Sprachfeatures sei es besonders einfach, Ihn oder Sie
+    davon zu überzeugen, das Feature nicht zu nutzen.
+    Die Absenz solcher Fehlerdaten könnte jedoch als willkürliche Einflussnahme auf die Arbeitsweise des Entwicklers
+    aufgefasst werden, was die Akzeptanz sinnvoller Maßnahmen senken könnte.
     
     \section{Bewertung}
     \label{sec:bewertung}
