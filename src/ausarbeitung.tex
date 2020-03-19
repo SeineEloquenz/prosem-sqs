@@ -435,13 +435,20 @@
     %TODO Explain graphics below
     In Figure~\ref{fig:1998-transgression-rates} und Figure~\ref{fig:2004-transgression-rates} werden anhand von sieben
     Softwarepaketen die kumulierten Verstöße je 1000 Codezeilen für M1998 bzw.\ M2004 je Regel dargestellt.
+    An den Grafiken ist leicht erkennbar, dass einige Regeln der Standards viele Regelübertretungen verursachen.
+    Diese Übertretungen korrelieren jedoch nicht in demselben Maße mit Defekten der Software, sie rauschen also stark.
     Diese Untersuchung aus~\cite{hatton2007language} zeigt, dass mit der Einführung von M2004 die Rate der False Positives
     um lediglich $29\%$ gesunken ist.
     Damit folgt gemäß der Betrachtungen aus~\cite{hatton2007language} gemeinsam mit den Daten aus~\cite{transgression-data}
     dass M2004 noch immer in jenem Bereich liegt, in dem eine Korrektur aller Verstöße die Anzahl an Faults
     eher erhöht als verringert.\\
     Daraus muss geschlossen werden, dass Misra in seiner Reinform ungeeignet ist und eine sorgfältige Regelauswahl erfolgen
-    muss um aus dem Standard einen Nutzen zu ziehen.
+    muss um aus dem Standard einen Nutzen zu ziehen.\\
+    Beim Vergleich der Grafiken ist darauf zu achten, dass mit der Einführung von M2004 sich auch die Abfolge der Regeln
+    geändert hat, und somit die Reihenfolge der Regeln in der Grafik keine Rückschlüsse auf die Veränderung der
+    Rauschraten einzelner Regeln zulässt.
+    Einzig Regel 1 ist in beiden Standards die selbe und auch an derselben Stelle in den Standards zu finden, weswegen sich
+    auch ihre Verstoßrate nicht verändert hat.
 
     \begin{figure}[H]
         \centering
@@ -459,10 +466,12 @@
         \label{fig:2004-transgression-rates}
     \end{figure}
 
-    Die Ergebnisse aus~\cite{hatton2007language} sind konsistent mit denen von~\cite{boogerd2008assessing}, welche in
-    ihrer Arbeit eine Längsschnittstudie über die Korrelation von Regelverstößen und Faults erstellten.
-    Auf Basis des \enquote{TV on Mobile} (TVoM) Projekts der Firma NXP, von dem etwa 91kLoC C Code für die Untersuchung relevant waren.
-    TVoM wurde ohne Verwendung von \sqss\ im Allgemeinen bzw.\ \misra\ im Speziellen erstellt.
+    Die Ergebnisse aus~\cite{hatton2007language} sind konsistent mit denen von Boogerd und Moonen, welche in
+    ihrer Arbeit eine Längsschnittstudie über die Korrelation von Regelverstößen und Faults erstellten.\cite{boogerd2008assessing}
+    Ihre Studie basierte dabei auf dem \enquote{TV on Mobile} (TVoM) Projekt der Firma NXP, von dem etwa 91kLoC C Code
+    für die Untersuchung relevant waren.
+    TVoM wurde ohne Verwendung von \sqss\ im Allgemeinen bzw.\ \misra\ im Speziellen erstellt und bildet daher eine gute
+    Basis für eine Untersuchung, inwiefern die Verwendung eines \sqss\ die Qualität der Software beeinflusst hätte.
     Boogerd und Moonen kommen in ihrer Untersuchung zum Schluss, dass 12 von 72 untersuchten Regeln von \misra\ signifikant
     besser als ein zufälliger Prädiktor abschnitten.
     Ihre true positive Raten variierten zwischen 23--100\%.
