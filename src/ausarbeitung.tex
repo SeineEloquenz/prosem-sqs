@@ -90,8 +90,8 @@
         Weiterhin wird überprüft, inwiefern \misra\ diese Definition erfüllt.\\
         Final sollen Gütekriterien für \sqss\ aufgestellt und die Güte des \misra\ Standards unter eben diesen Kriterien bewertet werden.
         Hierbei wird insbesondere die Signal-Rausch-Rate des Standards näher betrachtet.\\
-        Die Arbeit kommt zum Schluss dass \misra\ selbst einige Schwächen besitzt, welche durch sinnvolles Subsetting
-        ausgeglichen werden können.
+        Die Arbeit kommt zum Schluss, dass \misra\ selbst einige Schwächen besitzt, welche jedoch durch sinnvolles Subsetting
+        des Standards ausgeglichen werden können.
     \end{abstract}
 
     \section{Einleitung}
@@ -256,7 +256,7 @@
     Art sowie dem Grad an Evidenz, der ihre Existenz begründet, basiert.
     Regeln werden in diesem System nach Hatton in drei Typen unterschieden, einserseits Typ-A (\enquote{Style-basierte}) Regeln,
     andererseits Typ-B (\enquote{funktionale}) Regeln, welche sich weiter in Typ-B.1 (\enquote{Subjektive}) sowie
-    Typ B.2 (\enquote{Evidente}) unterscheiden lassen.\cite{hatton2004safer}\\
+    Typ-B.2 (\enquote{Evidente}) unterscheiden lassen.\cite{hatton2004safer}\\
     Im Folgenden wollen wir uns die verschiedenen Regelklassen je an einem Beispiel für eine Regel und ihre Verletzung
     genauer ansehen.\\
     Alle verwendeten Beispielregeln stammen hierbei aus \misra.
@@ -362,9 +362,9 @@
     \begin{definition}
         Ein Regelsatz $R$ sei ein \sls $\iff$
         \begin{itemize}
-            \item $R$ enthält nur Typ B.2 Regeln als verpflichtende Regeln
-            \item $R$ enthält nur Typ B.1 Regeln als empfohlene Regeln
-            \item $R$ enthält keinerlei Typ A Regeln
+            \item $R$ enthält nur Typ-B.2 Regeln als verpflichtende Regeln
+            \item $R$ enthält nur Typ-B.1 Regeln als empfohlene Regeln
+            \item $R$ enthält keinerlei Typ-A Regeln
         \end{itemize}
     \end{definition}
 
@@ -373,13 +373,17 @@
     B.2 wandern ohne den Inhalt des Standards großartig zu verändern.
     Dadurch erhöht sich der Anteil der evidenten Regeln und der Standard wird damit besser.
     Ein Fall für solch eine Regel wurde in Abschnitt~\ref{subsec:typ-b-1-regeln} mit der \textit{goto}-Regel angedeutet.
-    Da der Standard keinerlei Typ A Regeln enthält ist dieser Prozess grundsätzlich für alle enthaltenen Regeln möglich.\\
+    Da der Standard keinerlei Typ-A Regeln enthält ist dieser Prozess grundsätzlich für alle enthaltenen Regeln möglich.\\
     In~\cite{hatton2004safer} begründet Hatton diese Definition damit, dass Mangel an begründenden Fehlerdaten eine der
     größten Barrieren ist, welche die Akzeptanz von Language Subsetting beeinträchtigt.
     Kennt ein Entwickler das mess- und quantifizierbare Risiko eines Sprachfeatures sei es besonders einfach, Ihn oder Sie
     davon zu überzeugen, das Feature nicht zu nutzen.
     Die Absenz solcher Fehlerdaten könnte jedoch als willkürliche Einflussnahme auf die Arbeitsweise des Entwicklers
-    aufgefasst werden, was die Akzeptanz sinnvoller Maßnahmen senken könnte.
+    aufgefasst werden, was die Akzeptanz sinnvoller Maßnahmen senken könnte.\\
+
+    \paragraph*{\slss\ und \misra}
+    \misra\ erfüllt obige Definition eines \slss\ offensichtlich nicht, da es zwar Regeln als Empfohlene und Verpflichtende
+    kategorisiert, diese Einteilung jedoch nicht anhand der obigen Kriterien vornimmt und desweiteren Typ-A Regeln enthält.
     
     \section{Bewertung}
     \label{sec:bewertung}
