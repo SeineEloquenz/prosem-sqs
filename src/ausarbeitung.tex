@@ -296,7 +296,7 @@
 
     Das klassische Beispiel schlechthin für eine Typ-B.1 Regel stellt Regel 14.4 \textit{The goto statement shall not be used}
     (Die goto Anweisung soll nicht verwendet werden) dar.
-    Betrachten wir einmal folgendes Beispiel einer noch recht konservativen Verwendung des \textit{goto} rein zur
+    Betrachten wir einmal folgendes Beispiel einer noch recht konservativen Verwendung des \textit{goto}-Statements rein zur
     Fehlerbehandlung:
 
     \noindent
@@ -308,7 +308,7 @@
 
     Im Falle dass \textit{some Condition} eintritt, springt die Programmausführung zur Sprungmarke \textit{error}.
     Diese ist in einer \enquote{\textit{goto}-freien} Ausführung nicht erreichbar, da sie nach der ersten \textit{return}
-    Anweisung steht.
+    Anweisung im selben Block steht.
     Wollen wir die Programmausführung analysieren müssen wir somit alle Verwendungen von \textit{goto} finden,
     um zu verstehen wann die \textit{error} Marke erreicht wird.
     \textit{Goto} erhöht damit die Komplexität von Programmen enorm, indem es die Lücke zwischen statischem
@@ -368,9 +368,12 @@
         \end{itemize}
     \end{definition}
 
-    Diese Konstruktion eines \slss\ ermöglicht dem Standard auf \enquote{natürliche} Weise zu wachsen.
-    Werden für eine Regel aus der Kategorie B.1 Fehlerdaten gefunden, so kann diese automatisch in die bessere Kategorie
-    B.2 wandern, wie in Abschnitt~\ref{subsec:typ-b-1-regeln} mit der \textit{goto}-Regel angedeutet.\\
+    Diese Konstruktion eines \slss\ ermöglicht dem Standard sich auf \enquote{natürliche} Weise zu verbessern und zu wachsen.
+    Werden für eine Regel aus der Kategorie B.1 Fehlerdaten gefunden, so kann diese in die bessere Kategorie
+    B.2 wandern ohne den Inhalt des Standards großartig zu verändern.
+    Dadurch erhöht sich der Anteil der evidenten Regeln und der Standard wird damit besser.
+    Ein Fall für solch eine Regel wurde in Abschnitt~\ref{subsec:typ-b-1-regeln} mit der \textit{goto}-Regel angedeutet.
+    Da der Standard keinerlei Typ A Regeln enthält ist dieser Prozess grundsätzlich für alle enthaltenen Regeln möglich.\\
     In~\cite{hatton2004safer} begründet Hatton diese Definition damit, dass Mangel an begründenden Fehlerdaten eine der
     größten Barrieren ist, welche die Akzeptanz von Language Subsetting beeinträchtigt.
     Kennt ein Entwickler das mess- und quantifizierbare Risiko eines Sprachfeatures sei es besonders einfach, Ihn oder Sie
@@ -383,7 +386,7 @@
 
     %TODO Add introductory paragraph
     Nun wollen wir uns mit der Bewertung von \sqss\ und ihren Regeln beschäftigen.
-    Hierbei gibt es nach~\cite{hatton2004safer} mehrere Kriterien, wovon wir einige nachfolgend näher beleuchten wollen:
+    Hierbei gibt es nach~\cite{hatton2004safer} mehrere Kriterien, wovon wir einige kurz vorstellen und näher beleuchten wollen:
 
     \subsection{Orthogonalität}
     \label{subsec:orthogonalität}
@@ -403,14 +406,20 @@
     Die Regel lässt jedoch unspezifiziert, ob sie auf Fälle von Integer Promotion anzuwenden ist oder nicht.
     \footnote{Integer Promotion bezeichnet die implizite Konversion von Typen wie \textit{char} zu \textit{int} oder \textit{unsigned int}, sobald eine Operation auf ihnen ausgeführt wird.
     Ob \textit{int} oder \textit{unsigned int} verwendet wird hängt davon ab, ob ein \textit{int} alle Werte darstellen
-    kann oder nicht.}
+    kann oder nicht.
+    Die Größen der einzelnen Datentypen sind hierbei plattformabhängig.}
 
     \subsection{Atomizität}
     \label{subsec:atomizität}
     Manche Standards nutzen kurze, konzise Regeln, andere lange Prosaregeln.
-    Eine Regel ist atomar, wenn sie nicht mit anderen Regeln überlappt und befolgt werden kann, ohne dass einzelne Teile der Regel gebrochen werden müssen.
+    Tendenziell besitzen die langen Prosaregeln mehr Überlappung mit weiteren Regeln als kurze konzise Regeln.
+    Eine Regel sei nun atomar, wenn sie nicht mit anderen Regeln überlappt und befolgt werden kann, ohne dass einzelne
+    Teile der Regel gebrochen werden müssen.
     Weiterhin sollte eine Regel keine Ausnahmen besitzen, um als atomar bezeichnet werden zu können.\\
-    Das Paradebeispiel einer nicht-atomaren Regel stellt Regel 1 dar, welche die Achtung des ISO C90 Standards fordert.
+    Das Paradebeispiel einer nicht-atomaren Regel stellt Regel 1.1 dar, welche die Achtung des ISO C90 Standards fordert.
+    Andere Regeln verlangen eine Verletzung dieser Regel, um korrekt umgesetzt werden zu können, wie bspw.\ Regel 2.1
+    aus Abschnitt~\ref{subsec:beispielregel}.
+    Damit ist Regel 1.1 offensichtlich nicht atomar.
 
     \subsection{Signal-Rausch-Rate und False Positives}
     \label{subsec:signal-rausch-rate-und-false-positives}
