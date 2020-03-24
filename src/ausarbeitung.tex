@@ -219,15 +219,15 @@
     Die Regel selbst beschreibt wie Assemblerinstruktionen in den C-Code eingebettet werden sollen.
     Hierfür bestehen grundsätzlich drei Möglichkeiten, als Assemblerfunktionen, C Funktionen oder Makros.
     Soweit ist die Regel klar und sinnvoll aufgebaut.
-    Im Nachfolgenden werden mögliche Abweichungen von der Regel erläutert.
-    Unter anderem wann und wie die Verwendung von inline Assembler erlaubt ist und wie dies von statten gehen soll.
-    Hier stellen sich gleich mehrere Fragen:
+    Weiterhin werden mögliche Abweichungen von der Regel erläutert, unter anderem wann und wie die Verwendung von inline
+    Assembler erlaubt ist und wie dies von statten gehen soll.
+    Diese Ausführungen werden gleich mehrere Fragen auf:
 
     \begin{itemize}
         \item Was genau ist eine \enquote{einfache} Assemblerinstruktion?
             Als Beispiel wird die (De-)Aktivierung von Interrupts genannt, doch wo soll allgemein die Grenze gesetzt werden?
         \item Es wird empfohlen inline Einbettungen mit Makros durchzuführen.
-            Was ist zu tun wenn dies nicht über Makros geschieht.
+            Was ist zu tun wenn dies nicht über Makros geschieht?
             Verletzt das bereits die Regel oder ist es nur \enquote{unschön}?
     \end{itemize}
 
