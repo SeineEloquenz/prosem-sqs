@@ -115,7 +115,7 @@
     Bei diesen Prioritäten handelt es sich jedoch um eine bekannte und nicht zu unterschätzende Fehlerquelle.\\
     Beispiele für \sqss\ sind der JSF AV (Joint Strike Fighter Air Vehicle) Standard für C++, der von Lockheed Martin
     für den namensgebenden Joint Strike Fighter verwendet wurde und frei im Netz verfügbar ist, der CERT C Coding
-    Standard des CERT Coordination Centers oder \misra, einer der weitverbreitetsten Standards, vorallem in der
+    Standard des CERT Coordination Centers oder \misra, einer der weitverbreitetsten Standards, vor allem in der
     Automobilindustrie.\\
     Wir wollen im Folgenden \sqss\ im Allgemeinen näher betrachten und am Beispiel \misra\ sinnvolle Klassifikationen
     von Regeln sowie mögliche Gütekriterien und -Analysen für Standards vorstellen.
@@ -139,7 +139,7 @@
     \subsection{Evolution des Standards}
     \label{subsec:evolution-des-standards}
 
-    In dieser Sektion wollen wir die Entwicklung des Standards von seiner Urfassung von 1998 zum Standard von 2004
+    In dieser Sektion wollen wir die Entwicklung des Standards von seiner Urfassung von 1998 hin zum Standard von 2004
     betrachten.
 
     \subsubsection{Ziele der Neufassung von 2004}
@@ -149,7 +149,7 @@
         \item Die Übereinstimmung der verwendeten Begriffe mit denen des C-Standards sicherzustellen
         \item Allgemeine Regeln zu undefiniertem Verhalten durch Spezialisierte zu ersetzen
         \item Das \enquote{One Rule, one Issue}-Prinzip durchzusetzen.
-            (Komplexe Regeln in atomarere aufzuspalten)
+            (Komplexe Regeln in möglichst atomare aufzuspalten)
         \item Neue und verbesserte Codebeispiele hinzuzufügen
         \item Manuelle Verwendung (ohne Analysetools) zu entfernen
     \end{itemize}
@@ -220,8 +220,8 @@
     Hierfür bestehen grundsätzlich drei Möglichkeiten, als Assemblerfunktionen, C Funktionen oder Makros.
     Soweit ist die Regel klar und sinnvoll aufgebaut.
     Weiterhin werden mögliche Abweichungen von der Regel erläutert, unter anderem wann und wie die Verwendung von inline
-    Assembler erlaubt ist und wie dies von statten gehen soll.
-    Diese Ausführungen werden gleich mehrere Fragen auf:
+    Assembler erlaubt ist und wie dies vonstatten gehen soll.
+    Diese Ausführungen werfen gleich mehrere Fragen auf:
 
     \begin{itemize}
         \item Was genau ist eine \enquote{einfache} Assemblerinstruktion?
@@ -237,9 +237,9 @@
     Wird die Schwelle zu gering gesetzt, werden potentiell zu viele false positives erzeugt.
     Wird sie zu hoch gesetzt wird die Regel wertlos, da sie keine Ergebnisse mehr produziert.
     Beide Extreme sorgen dafür dass die Akzeptanz bei den Entwicklern sinkt, da sie im einen Fall störende false positives
-    und im anderen Fall gar nie Fehler findet.
-    Weiterhin erfordert inline Assembler eine Abweichung von Regel 1.1, was bedeutet dass für jede Inline-Instruktion,
-    auch die, die durch diese Regel erlaubt werden, eine formale Abweichung von dieser Regel angegeben werden muss.\\
+    und im anderen Fall gar nie Fehler finden.
+    Weiterhin erfordert inline Assembler eine Abweichung von Regel 1.1, was bedeutet, dass für jede Inline-Instruktion,
+    auch jene, welche durch diese Regel erlaubt werden, eine formale Abweichung von dieser Regel angegeben werden muss.\\
     Was folgt daraus?
     Die Regel lässt sich nur schwer sinnvoll automatisiert entscheiden und ist durch die vielen Ausnahmen und Überlappungen
     mit anderen Regeln komplex.
@@ -282,7 +282,7 @@
     Durch die unterschiedlichen Einheiten für Geschwindigkeit in der Luft bzw.\ am Boden besteht hier eine potentielle
     Fehlerquelle.
     Durch Umbenennung der Variablen in bspw.\ \textit{speed\_knots} und \textit{speed\_kmh} kann diese ausgeräumt werden,
-    da klar wird, dass eine Konversion der Geschwindigkeiten stattfinden muss, bevor diese gemeinsam verwendet, bspw.\ verglichen,
+    da klar wird, dass eine Konversion der Geschwindigkeiten stattfinden muss, bevor diese gemeinsam verwendet, bspw.\ verglichen
     werden können.
     Ungeachtet dieser Fehlerquelle handelt es sich jedoch um ein rein stilistisches Problem, weshalb diese Regel in
     Kategorie A fällt.
@@ -309,7 +309,7 @@
     Im Falle dass \textit{some Condition} eintritt, springt die Programmausführung zur Sprungmarke \textit{error}.
     Diese ist in einer \enquote{\textit{goto}-freien} Ausführung nicht erreichbar, da sie nach der ersten \textit{return}
     Anweisung im selben Block steht.
-    Wollen wir die Programmausführung analysieren müssen wir somit alle Verwendungen von \textit{goto} finden,
+    Wollen wir die Programmausführung analysieren, müssen wir somit alle Verwendungen von \textit{goto} finden,
     um zu verstehen wann die \textit{error} Marke erreicht wird.
     \textit{Goto} erhöht damit die Komplexität von Programmen enorm, indem es die Lücke zwischen statischem
     Quelltext und darauf basierender Programmausführung vergrößert.\cite{goto-harmful}
@@ -345,7 +345,7 @@
     Im dargestellten Listing wird eine Variable \textit{speed} deklariert, aber nicht initialisiert.
     Der erweiternde Erklärungstext in~\cite{MISRA2004} zu Regel 9.1 erlaubt eine spätere Initialisierung ausdrücklich, verlangt jedoch, dass
     in jedem Fall die Variable vor einem lesenden Zugriff beschrieben werden muss.
-    Dies ist hier offensichtlich nicht der Fall, da \textit{speed} nur im Falle dass \textit{some Condition} eintritt auf
+    Dies ist hier offensichtlich nicht der Fall, da \textit{speed} nur im Falle, dass \textit{some Condition} eintritt auf
     \textit{101} gesetzt wird, andernfalls bleibt ihr Wert undefiniert.
     Damit ist ab dem lesenden Zugriff in der darauffolgenden If-Abfrage das Verhalten des Programms potentiell undefiniert.
     Es ist bereits intuitiv klar, warum es sich hierbei um eine Fehlerquelle handelt, jedoch gibt es hierzu auch explizit
@@ -376,7 +376,7 @@
     Da der Standard keinerlei Typ-A Regeln enthält ist dieser Prozess grundsätzlich für alle enthaltenen Regeln möglich.\\
     In~\cite{hatton2004safer} begründet Hatton diese Definition damit, dass Mangel an begründenden Fehlerdaten eine der
     größten Barrieren ist, welche die Akzeptanz von Language Subsetting beeinträchtigt.
-    Kennt ein Entwickler das mess- und quantifizierbare Risiko eines Sprachfeatures sei es besonders einfach, Ihn oder Sie
+    Kennt ein Entwickler das mess- und quantifizierbare Risiko eines Sprachfeatures sei es besonders einfach, ihn oder sie
     davon zu überzeugen, das Feature nicht zu nutzen.
     Die Absenz solcher Fehlerdaten könnte jedoch als willkürliche Einflussnahme auf die Arbeitsweise des Entwicklers
     aufgefasst werden, was die Akzeptanz sinnvoller Maßnahmen senken könnte.\\
@@ -431,7 +431,7 @@
 
     Unter der Signal-Rausch-Rate eines Standards verstehen wir die Rate mit der das Auftreten eines Verstoßes gegen den Regelsatz mit einem
     tatsächlichen Defekt korreliert.
-    Großes Rauschen führt dazu, dass die Wahrscheinlichkeit dass ein Verstoß mit einem Defekt einhergeht, abnimmt.
+    Großes Rauschen führt dazu, dass die Wahrscheinlichkeit, dass ein Verstoß mit einem Defekt einhergeht, abnimmt.
     Ein Standard ist demnach \enquote{gut}, wenn die Signal-Rausch-Rate möglichst gering ist.\\
     Sei $p > 0$ sei die Wahrscheinlichkeit, mit der eine Korrektur einer Regelübertretung zur Einführung eines neuen Defekts
     etwa desselben Schweregrads führt.
@@ -473,7 +473,7 @@
     Beim Vergleich der Grafiken ist darauf zu achten, dass mit der Einführung von M2004 sich auch die Abfolge der Regeln
     geändert hat, und somit die Reihenfolge der Regeln in der Grafik keine Rückschlüsse auf die Veränderung der
     Rauschraten einzelner Regeln zulässt.
-    Einzig Regel 1 ist in beiden Standards die selbe und auch an derselben Stelle in den Standards zu finden, weswegen sich
+    Einzig Regel 1 ist in beiden Standards dieselbe und auch an derselben Stelle in den Standards zu finden, weswegen sich
     auch ihre Verstoßrate nicht verändert hat.
 
     \begin{figure}[H]
@@ -514,12 +514,12 @@
     \label{sec:konklusion}
     Im Allgemeinen stellen \sqss\ einen guten Ansatz zur Verbesserung der Code-Qualität von Softwareprojekten dar.
     Insbesondere mit den \slss\ nach Hatton existiert eine Definition für gute Regelsätze, welche eine hohe Akzeptanz
-    bei Entwicklern sowie einen natürlichen Verbesserungsprozess ermöglicht.\\
+    bei Entwicklern, sowie einen natürlichen Verbesserungsprozess ermöglicht.\\
     Bei der Definition eines Standards müssen jedoch die Gütekriterien aus Abschnitt~\ref{sec:bewertung} beachtet werden.
     Bezüglich des Beispieles \misra\ bleibt zu sagen, dass \misra\ durchaus einige gute Regeln enthält,
     wie in Boogerd und Moonens Analyse angedeutet wurde.
-    Der Standard hat jedoch auch einige Probleme, vorallem in den Bereichen Orthogonalität, Entscheidbarkeit sowie
-    der Signal-Rausch-Rate.
+    Der Standard hat jedoch auch einige Probleme, vorallem in den Bereichen Orthogonalität, Entscheidbarkeit, sowie
+    insbesondere der Signal-Rausch-Rate.
     Diese Probleme lassen daran zweifeln, dass eine Verwendung des unveränderten \misra-Standards wirklich zu einer
     Verbesserung der Codequalität führt.
     Diese Zweifel werden von Hattons und Boogerd und Moonens Analysen gestützt.
