@@ -1,3 +1,4 @@
+%! Suppress = TooLargeSection
 %! Suppress = Unicode
 \documentclass[a4paper,UKenglish,cleveref, autoref]{templates/lipics-v2019}
 \usepackage{csquotes}
@@ -143,7 +144,7 @@
     betrachten.
 
     \subsubsection{Ziele der Neufassung von 2004}
-    Die Revision von M1998 auf M2004 verfolgte im Großen und Ganzen fünf Ziele:
+    Die Revision von M1998 auf M2004 verfolgte nach~\cite{misra-website} im Großen und Ganzen fünf Ziele:
 
     \begin{itemize}
         \item Die Übereinstimmung der verwendeten Begriffe mit denen des C-Standards sicherzustellen
@@ -214,7 +215,7 @@
             \end{lstlisting}
         \end{example}
     \end{minipage}
-    Es werden hierbei nachfolgend keine Codebeispiele oder weitere Erklärungen geliefert.\\
+    Es werden im Standard keinerlei Codebeispiele oder weitergehende Erklärungen bzw.\ Konkretisierungen geliefert.\\
 
     Die Regel selbst beschreibt wie Assemblerinstruktionen in den C-Code eingebettet werden sollen.
     Hierfür bestehen grundsätzlich drei Möglichkeiten, als Assemblerfunktionen, C Funktionen oder Makros.
@@ -226,12 +227,14 @@
     \begin{itemize}
         \item Was genau ist eine \enquote{einfache} Assemblerinstruktion?
             Als Beispiel wird die (De-)Aktivierung von Interrupts genannt, doch wo soll allgemein die Grenze gesetzt werden?
+            Hier fehlt eine eindeutige Definition.
         \item Es wird empfohlen inline Einbettungen mit Makros durchzuführen.
             Was ist zu tun wenn dies nicht über Makros geschieht?
             Verletzt das bereits die Regel oder ist es nur \enquote{unschön}?
     \end{itemize}
 
-    Diese Fragen zeigen bereits auf, dass es alles andere als trivial ist, diese Regel automatisiert zu überprüfen.
+    Diese Fragen zeigen bereits auf, dass es alles andere als trivial ist, diese Regel automatisiert zu überprüfen, da
+    ihre Formulierung bereits Interpretationsspielraum lässt.
     Angenommen, der Compiler überprüft sie für uns, wann setzt er die Grenze ab wann inline Assemblerinstruktionen
     nicht mehr \enquote{einfach} sind?
     Wird die Schwelle zu gering gesetzt, werden potentiell zu viele false positives erzeugt.
@@ -432,7 +435,10 @@
     Unter der Signal-Rausch-Rate eines Standards verstehen wir die Rate mit der das Auftreten eines Verstoßes gegen den Regelsatz mit einem
     tatsächlichen Defekt korreliert.
     Großes Rauschen führt dazu, dass die Wahrscheinlichkeit, dass ein Verstoß mit einem Defekt einhergeht, abnimmt.
-    Ein Standard ist demnach \enquote{gut}, wenn die Signal-Rausch-Rate möglichst gering ist.\\
+    Ein Standard ist demnach \enquote{gut}, wenn die Signal-Rausch-Rate möglichst gering ist.
+
+    \subsubsection{False Positives}
+    \label{subsubsec:false-positives}
     Sei $p > 0$ sei die Wahrscheinlichkeit, mit der eine Korrektur einer Regelübertretung zur Einführung eines neuen Defekts
     etwa desselben Schweregrads führt.
     Diese Wahrscheinlichkeit existiert gemäß~\cite{transgression-data} und~\cite{hatton2007language} und beträgt in
